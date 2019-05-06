@@ -47,9 +47,12 @@ async def on_raw_reaction_add(payload):
 	print(payloadgit)
 	if payload.user_id != client.user.id:
 		if payload.message.id == welcome_message_id:
+			
+			author = discord.utils.get(client.users, id=payload.user_id)
+			
 			print('☛ I do care, sir.')
 			
-			matchs = list(filter(lambda e: e["emoji"] == reaction.emoji, roles))
+			matchs = list(filter(lambda e: e["emoji"] == payload.emoji, roles))
 
 			if not matchs:
 				await reaction.remove(author)
