@@ -43,9 +43,10 @@ async def on_message(message):
 
 
 @client.event
-async def on_raw_reaction_add(reaction, author):
-	if author != client.user:
-		if reaction.message.id == welcome_message_id:
+async def on_raw_reaction_add(payload):
+	print(payloadgit)
+	if payload.user_id != client.user.id:
+		if payload.message.id == welcome_message_id:
 			print('☛ I do care, sir.')
 			
 			matchs = list(filter(lambda e: e["emoji"] == reaction.emoji, roles))
