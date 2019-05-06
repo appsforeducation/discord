@@ -43,7 +43,7 @@ async def on_message(message):
 
 
 @client.event
-async def on_reaction_add(reaction, author):
+async def on_raw_reaction_add(reaction, author):
 	if author != client.user:
 		if reaction.message.id == welcome_message_id:
 			print('☛ I do care, sir.')
@@ -59,7 +59,7 @@ async def on_reaction_add(reaction, author):
 
 
 @client.event
-async def on_reaction_remove(reaction, author):
+async def on_raw_reaction_remove(reaction, author):
 	if author != client.user:
 		if reaction.message.id == welcome_message_id:
 			print('☛ I do care, sir.')
